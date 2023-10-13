@@ -1,23 +1,38 @@
 import React, { useEffect } from "react";
-import { View } from "react-native";
-import invokeAPI from "../networking";
-import endPoints from "../networking/endPoints";
+import { FlatList, StyleSheet, View } from "react-native";
+
+import useMovies from "../hooks/useMovies";
+import PosterWithName from "../components/PosterWithName";
 
 const Watch = () => {
 
-  const getMoviesList = async () => {
-    const resp = await invokeAPI({ url: endPoints.upcomingList });
-  }
+  const { getMoviesList, moviesList } = useMovies();
 
   useEffect(() => {
     getMoviesList();
   }, []);
 
   return (
-    <View>
-
+    <View style={styles.container}>
+      <FlatList
+        data={moviesList}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <PosterWithName
+            id={item.id}
+            title={item.title}
+            posterPath={item.poster_path}
+          />
+        )}
+      />
     </View>
   );
 };
 
 export default Watch;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  }
+});
