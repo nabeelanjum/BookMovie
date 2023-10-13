@@ -2,4 +2,6 @@
 
 export const BASE_URL = "https://api.themoviedb.org/3/";
 
-export const API_KEY = "89d3fc9e7d2988e138754587d6de3bf4";
+export const API_KEY = "510d633d08a602a6596d553212bc14f0";
+
+export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/";

@@ -17,11 +17,12 @@ const Watch = () => {
       <FlatList
         data={moviesList}
         keyExtractor={(item) => item.id}
+        contentContainerStyle={{ paddingHorizontal: 15, paddingVertical: 10 }}
         renderItem={({ item }) => (
           <PosterWithName
             id={item.id}
             title={item.title}
-            posterPath={item.poster_path}
+            posterPath={item.backdrop_path}
           />
         )}
       />
