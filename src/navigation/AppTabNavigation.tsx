@@ -16,6 +16,10 @@ export function BottomTabNavigator() {
         name="Dashboard"
         component={Watch}
       />
+      <Tab.Screen
+        name="Watch"
+        component={Watch}
+      />
     </Tab.Navigator>
   );
 }
