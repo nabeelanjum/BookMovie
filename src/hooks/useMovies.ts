@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 
 import invokeAPI from "../networking";
 import endPoints from "../networking/endPoints";
@@ -10,8 +10,6 @@ const useMovies = () => {
   const dispatch = useDispatch();
 
   const moviesList = useSelector((state: any) => state.movies?.list);
-
-  const [movieDetails, setMovieDetails] = useState<any>(null);
 
   const getMoviesList = useCallback(async () => {
     const resp = await invokeAPI({ url: endPoints.upcomingList });
@@ -29,16 +27,13 @@ const useMovies = () => {
         append_to_response: "videos"
       }
     });
-    if (resp) {
-      setMovieDetails(resp);
-    }
+    return resp;
   }, []);
 
   return {
     getMoviesList,
     moviesList,
     getMovieDetails,
-    movieDetails,
   };
 
 };

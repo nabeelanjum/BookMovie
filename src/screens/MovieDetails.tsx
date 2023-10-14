@@ -14,12 +14,17 @@ const MovieDetails: React.FC<any> = ({ navigation, route }) => {
 
   const { params } = route;
 
-  const { getMovieDetails, movieDetails } = useMovies();
+  const { getMovieDetails } = useMovies();
 
+  const [movieDetails, setMovieDetails] = useState<any>(null);
   const [movieTrailer, setMovieTrailer] = useState("");
 
   useEffect(() => {
-    getMovieDetails(params?.movieId);
+    const fetchMovieDetails = async () => {
+      const resp = await getMovieDetails(params?.movieId);
+      setMovieDetails(resp);
+    }
+    fetchMovieDetails();
   }, []);
 
   useEffect(() => {
