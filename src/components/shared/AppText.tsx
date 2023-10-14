@@ -7,6 +7,7 @@ import {
 } from "react-native";
 
 import colors from "../../common/colors";
+import { fonts } from "../../common/constants";
 
 interface Props extends TextProps {
   bold?: boolean;
@@ -57,6 +58,7 @@ const AppText: React.FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   text: {
+    fontFamily: fonts.regular,
   },
   center: {
     textAlign: "center",
