@@ -13,7 +13,7 @@ const AppStackNavigation = () => {
         headerTitleStyle: {
           fontFamily: fonts.medium,
           fontSize: 18
-        }
+        },
       }}
     >
       <Stack.Screen name={stackRoutes.Watch} component={Watch} />
@@ -22,7 +22,7 @@ const AppStackNavigation = () => {
         component={MovieDetails}
         options={{
           headerTransparent: true,
-          title: ""
+          title: "",
         }}
       />
       <Stack.Screen name={stackRoutes.Search} component={Search} />
@@ -31,7 +31,7 @@ const AppStackNavigation = () => {
         component={VideoPlayback}
         options={{
           presentation: "card",
-          title: ""
+          title: "",
         }}
       />
     </Stack.Navigator>
