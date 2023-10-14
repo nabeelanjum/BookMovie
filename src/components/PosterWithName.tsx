@@ -4,6 +4,7 @@ import { ImageBackground, Pressable, StyleSheet } from "react-native";
 import AppText from "./shared/AppText";
 import { getImageUrl } from "../common/helpers";
 import colors from "../common/colors";
+import Overlay from "./shared/Overlay";
 
 interface Props {
   id: string;
@@ -27,6 +28,7 @@ const PosterWithName: React.FC<Props> = (props) => {
         style={styles.posterContainer}
         resizeMode="cover"
       >
+        <Overlay />
         <AppText style={styles.title}>{title}</AppText>
       </ImageBackground>
     </Pressable>
