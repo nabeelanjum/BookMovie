@@ -6,6 +6,7 @@ import { Searchbar } from "react-native-paper";
 import colors from "../common/colors";
 import useMovies from "../hooks/useMovies";
 import MovieTile from "../components/MovieTile";
+import { stackRoutes } from "../navigation/configs";
 
 const Search: React.FC = ({ navigation }) => {
 
@@ -45,6 +46,7 @@ const Search: React.FC = ({ navigation }) => {
           renderItem={({ item }) => (
             <MovieTile
               movie={item}
+              onPress={() => navigation.navigate(stackRoutes.Details, { movieId: item.id })}
             />
           )}
         />

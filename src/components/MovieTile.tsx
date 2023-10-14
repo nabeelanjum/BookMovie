@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 import AppText from "../components/shared/AppText";
 import { getImageUrl } from "../common/helpers";
 import { SCREEN_WIDTH, fonts } from "../common/constants";
@@ -18,7 +18,7 @@ const MovieTile: React.FC<Props> = (props) => {
   } = props;
 
   return (
-    <View style={styles.container}>
+    <Pressable onPress={() => onPress?.()} style={styles.container}>
       <Image
         source={{ uri: getImageUrl(movie.backdrop_path) }}
         style={styles.posterImage}
@@ -28,7 +28,7 @@ const MovieTile: React.FC<Props> = (props) => {
         <AppText style={styles.title}>{movie.title}</AppText>
         <AppText color={colors.fontSecondary}>Released: {movie.release_date}</AppText>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
