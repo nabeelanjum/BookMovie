@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ImageBackground, StyleSheet, View } from "react-native";
 import AppText from "../components/shared/AppText";
 import useMovies from "../hooks/useMovies";
-import { getImageUrl } from "../common/helpers";
+import { getImageUrl, getTrailerKey } from "../common/helpers";
 import colors from "../common/colors";
 import AppButton from "../components/shared/AppButton";
 import GenreChip from "../components/shared/GenreChip";
@@ -15,9 +15,16 @@ const MovieDetails: React.FC<any> = ({ route }) => {
 
   const { getMovieDetails, movieDetails } = useMovies();
 
+  const [movieTrailer, setMovieTrailer] = useState("");
+
   useEffect(() => {
     getMovieDetails(params?.movieId);
   }, []);
+
+  useEffect(() => {
+    const key = getTrailerKey(movieDetails?.videos?.results);
+    setMovieTrailer(key);
+  }, [movieDetails]);
 
   return (
     <View style={styles.container}>
