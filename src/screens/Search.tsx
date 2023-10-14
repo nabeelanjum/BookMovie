@@ -1,14 +1,24 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import React, { useCallback, useMemo, useState } from "react";
+import { FlatList, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Searchbar } from "react-native-paper";
 
-import AppText from "../components/shared/AppText";
 import colors from "../common/colors";
+import useMovies from "../hooks/useMovies";
+import MovieTile from "../components/MovieTile";
 
 const Search: React.FC = ({ navigation }) => {
 
+  const { getMoviesSearchResults } = useMovies();
+
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+
+  const handleSearch = useCallback(async () => {
+    const resp = await getMoviesSearchResults(searchQuery);
+    console.warn(resp);
+    setSearchResults(resp?.results);
+  }, [searchQuery]);
 
   const renderHeader = useMemo(() => {
     return (
@@ -18,6 +28,7 @@ const Search: React.FC = ({ navigation }) => {
           placeholder="Search..."
           value={searchQuery}
           onChangeText={setSearchQuery}
+          onSubmitEditing={handleSearch}
         />
       </View>
     );
@@ -27,7 +38,16 @@ const Search: React.FC = ({ navigation }) => {
     <>
       {renderHeader}
       <View style={styles.container}>
-        <AppText>Coming Soon!</AppText>
+        <FlatList
+          data={searchResults}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={{ paddingHorizontal: 15 }}
+          renderItem={({ item }) => (
+            <MovieTile
+              movie={item}
+            />
+          )}
+        />
       </View>
     </>
   );
@@ -43,5 +63,4 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     paddingBottom: 10,
   }
-
 });

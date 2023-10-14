@@ -30,10 +30,22 @@ const useMovies = () => {
     return resp;
   }, []);
 
+  const getMoviesSearchResults = useCallback(async (searchQuery: string) => {
+    const resp = await invokeAPI({
+      url: endPoints.search,
+      params: {
+        query: searchQuery
+      }
+    });
+    console.warn(resp);
+    return resp;
+  }, []);
+
   return {
     getMoviesList,
     moviesList,
     getMovieDetails,
+    getMoviesSearchResults,
   };
 
 };
