@@ -4,7 +4,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 import useMovies from "../hooks/useMovies";
 import PosterWithName from "../components/PosterWithName";
 
-const Watch: React.FC = () => {
+const Watch: React.FC = ({ navigation }) => {
 
   const { getMoviesList, moviesList } = useMovies();
 
@@ -23,6 +23,7 @@ const Watch: React.FC = () => {
             id={item.id}
             title={item.title}
             posterPath={item.backdrop_path}
+            onPress={() => navigation.navigate("Details", { movieId: item.id })}
           />
         )}
       />

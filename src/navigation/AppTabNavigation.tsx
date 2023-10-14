@@ -34,7 +34,8 @@ const BottomTabNavigator = () => {
         options={{
           title: "Watch",
           tabBarIcon: (props) => <Image source={images.watch} style={{ tintColor: props.color }} />,
-          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>
+          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>,
+          headerShown: false,
         }}
       />
       <Tab.Screen

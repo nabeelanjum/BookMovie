@@ -21,7 +21,7 @@ const PosterWithName: React.FC<Props> = (props) => {
   } = props;
 
   return (
-    <Pressable style={styles.container}>
+    <Pressable onPress={() => onPress?.()} style={styles.container}>
       <ImageBackground
         source={{ uri: getImageUrl(posterPath) }}
         style={styles.posterContainer}
