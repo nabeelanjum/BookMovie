@@ -1,5 +1,5 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { MovieDetails, Search, Watch } from "../screens";
+import { MovieDetails, Search, VideoPlayback, Watch } from "../screens";
 import { fonts } from "../common/constants";
 
 const Stack = createStackNavigator();
@@ -25,6 +25,13 @@ const AppStackNavigation = () => {
         }}
       />
       <Stack.Screen name={"Search"} component={Search} />
+      <Stack.Screen
+        name={"VideoPlayback"}
+        component={VideoPlayback}
+        options={{
+          presentation: "card"
+        }}
+      />
     </Stack.Navigator>
   );
 }

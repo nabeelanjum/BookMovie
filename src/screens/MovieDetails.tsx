@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ImageBackground, ScrollView, StyleSheet, View } from "react-native";
+
 import AppText from "../components/shared/AppText";
 import useMovies from "../hooks/useMovies";
-import { getImageUrl, getTrailerKey } from "../common/helpers";
+import { getImageUrl, getTrailerId } from "../common/helpers";
 import colors from "../common/colors";
 import AppButton from "../components/shared/AppButton";
 import GenreChip from "../components/shared/GenreChip";
 import { SCREEN_HEIGHT, fonts } from "../common/constants";
 import Overlay from "../components/shared/Overlay";
 
-const MovieDetails: React.FC<any> = ({ route }) => {
+const MovieDetails: React.FC<any> = ({ navigation, route }) => {
 
   const { params } = route;
 
@@ -22,9 +23,13 @@ const MovieDetails: React.FC<any> = ({ route }) => {
   }, []);
 
   useEffect(() => {
-    const key = getTrailerKey(movieDetails?.videos?.results);
-    setMovieTrailer(key);
+    const trailerId = getTrailerId(movieDetails?.videos?.results);
+    setMovieTrailer(trailerId);
   }, [movieDetails]);
+
+  const handleWatchTrailer = useCallback(() => {
+    navigation.navigate("VideoPlayback", { videoId: movieTrailer });
+  }, []);
 
   return (
     <ScrollView contentContainerStyle={{ paddingBottom: 10 }} style={styles.container}>
@@ -41,6 +46,7 @@ const MovieDetails: React.FC<any> = ({ route }) => {
             style={{ width: 240, marginTop: 20 }}
           />
           <AppButton
+            onPress={handleWatchTrailer}
             label="Watch Trailer"
             reverse
             style={{ width: 240, marginTop: 10 }}

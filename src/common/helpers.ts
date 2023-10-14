@@ -7,7 +7,7 @@ export const getImageUrl = (path: string, size: BackdropSize = "original") => {
   return `${IMAGE_BASE_URL}/${size}/${path}`;
 }
 
-export const getTrailerKey = (videos: any[]) => {
+export const getTrailerId = (videos: any[]) => {
   const youTubeTrailer = videos?.find((videoObj) => videoObj.type === "Trailer" && videoObj.site === "YouTube");
   return youTubeTrailer?.key;
 }
