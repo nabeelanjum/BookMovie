@@ -30,7 +30,8 @@ const AppStackNavigation = () => {
         name={stackRoutes.VideoPlayback}
         component={VideoPlayback}
         options={{
-          presentation: "card"
+          presentation: "card",
+          title: ""
         }}
       />
     </Stack.Navigator>
