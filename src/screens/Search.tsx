@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import AppText from "../components/shared/AppText";
-import SearchBar from "../components/shared/SearchBar";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Searchbar } from "react-native-paper";
 
-const Search: React.FC = () => {
+import AppText from "../components/shared/AppText";
+import colors from "../common/colors";
+
+const Search: React.FC = ({ navigation }) => {
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const renderHeader = useMemo(() => {
+    return (
+      <View style={styles.headerContainer}>
+        <SafeAreaView edges={["top"]} />
+        <Searchbar
+          placeholder="Search..."
+          value={searchQuery}
+          onChangeText={setSearchQuery}
+        />
+      </View>
+    );
+  }, [searchQuery]);
+
   return (
-    <View style={styles.container}>
-      <SearchBar onSearch={() => { }} />
-      <AppText>Coming Soon!</AppText>
-    </View>
+    <>
+      {renderHeader}
+      <View style={styles.container}>
+        <AppText>Coming Soon!</AppText>
+      </View>
+    </>
   );
 }
 
@@ -18,5 +39,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  headerContainer: {
+    backgroundColor: colors.white,
+    paddingBottom: 10,
+  }
 
 });
