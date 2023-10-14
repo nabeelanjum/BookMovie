@@ -4,7 +4,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 import useMovies from "../hooks/useMovies";
 import PosterWithName from "../components/PosterWithName";
 
-const Watch = () => {
+const Watch: React.FC = () => {
 
   const { getMoviesList, moviesList } = useMovies();
 

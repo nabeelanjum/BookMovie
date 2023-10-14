@@ -1,14 +1,16 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Watch from "../screens/Watch";
+
 import images from "../assets/images";
 import AppText from "../components/shared/AppText";
 import colors from "../common/colors";
+import { Dashboard, MediaLibrary, More, Watch } from "../screens";
+import AppStackNavigation from "./AppStackNavigation";
 
 const Tab = createBottomTabNavigator();
 
-export function BottomTabNavigator() {
+const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -20,23 +22,24 @@ export function BottomTabNavigator() {
     >
       <Tab.Screen
         name="Dashboard"
-        component={Watch}
+        component={Dashboard}
         options={{
           tabBarIcon: (props) => <Image source={images.dashboard} style={{ tintColor: props.color }} />,
           tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>
         }}
       />
       <Tab.Screen
-        name="Watch"
-        component={Watch}
+        name="AppStack"
+        component={AppStackNavigation}
         options={{
+          title: "Watch",
           tabBarIcon: (props) => <Image source={images.watch} style={{ tintColor: props.color }} />,
           tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>
         }}
       />
       <Tab.Screen
         name="Library"
-        component={Watch}
+        component={MediaLibrary}
         options={{
           tabBarIcon: (props) => <Image source={images.library} style={{ tintColor: props.color }} />,
           tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>
@@ -44,7 +47,7 @@ export function BottomTabNavigator() {
       />
       <Tab.Screen
         name="More"
-        component={Watch}
+        component={More}
         options={{
           tabBarIcon: (props) => <Image source={images.more} style={{ tintColor: props.color }} />,
           tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>

@@ -37,7 +37,6 @@ export default PosterWithName;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "red",
     marginVertical: 12,
     borderRadius: 10,
     overflow: "hidden",
