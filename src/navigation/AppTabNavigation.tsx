@@ -18,6 +18,7 @@ const BottomTabNavigator = () => {
         tabBarIconStyle: { marginBottom: -10 },
         tabBarActiveTintColor: colors.white,
         tabBarInactiveTintColor: colors.tabInactive,
+        headerTitleAlign: "left",
       }}
     >
       <Tab.Screen

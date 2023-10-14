@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { ImageBackground, ScrollView, StyleSheet, View } from "react-native";
 import AppText from "../components/shared/AppText";
 import useMovies from "../hooks/useMovies";
 import { getImageUrl, getTrailerKey } from "../common/helpers";
@@ -27,7 +27,7 @@ const MovieDetails: React.FC<any> = ({ route }) => {
   }, [movieDetails]);
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={{ paddingBottom: 10 }} style={styles.container}>
 
       <ImageBackground
         source={{ uri: getImageUrl(movieDetails?.poster_path) }}
@@ -63,7 +63,8 @@ const MovieDetails: React.FC<any> = ({ route }) => {
           <AppText style={styles.overviewText}>{movieDetails?.overview}</AppText>
         </>
       </View>
-    </View>
+
+    </ScrollView>
   );
 }
 
@@ -71,10 +72,9 @@ export default MovieDetails;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
   },
   posterContainer: {
-    height: SCREEN_HEIGHT / 2,
+    height: SCREEN_HEIGHT / 1.6,
     width: "100%",
     justifyContent: "flex-end",
   },
