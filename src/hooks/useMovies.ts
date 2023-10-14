@@ -4,6 +4,7 @@ import invokeAPI from "../networking";
 import endPoints from "../networking/endPoints";
 import { useDispatch, useSelector } from "react-redux";
 import { updateMoviesList } from "../store/reducers/movies";
+import { AxiosRequestConfig } from "axios";
 
 const useMovies = () => {
 
@@ -14,7 +15,15 @@ const useMovies = () => {
   const [movieDetails, setMovieDetails] = useState<any>(null);
 
   const getMoviesList = useCallback(async () => {
-    const resp = await invokeAPI({ url: endPoints.upcomingList });
+    const config: AxiosRequestConfig = {
+      url: endPoints.upcomingList,
+      // As mentioned in the API docs here: https://developer.themoviedb.org/docs/append-to-response
+      // getting videos with this easy and efficient way by adding the param 'append_to_response'
+      params: {
+        "append_to_response": "videos"
+      }
+    };
+    const resp = await invokeAPI(config);
     if (resp) {
       dispatch(updateMoviesList(resp.results));
     }
