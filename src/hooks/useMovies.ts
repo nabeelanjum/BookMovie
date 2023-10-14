@@ -37,7 +37,6 @@ const useMovies = () => {
         query: searchQuery
       }
     });
-    console.warn(resp);
     return resp;
   }, []);
 

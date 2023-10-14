@@ -1,7 +1,8 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Searchbar } from "react-native-paper";
+import IonIcons from "react-native-vector-icons/Ionicons";
 
 import colors from "../common/colors";
 import useMovies from "../hooks/useMovies";
@@ -17,7 +18,6 @@ const Search: React.FC = ({ navigation }) => {
 
   const handleSearch = useCallback(async () => {
     const resp = await getMoviesSearchResults(searchQuery);
-    console.warn(resp);
     setSearchResults(resp?.results);
   }, [searchQuery]);
 
@@ -25,12 +25,19 @@ const Search: React.FC = ({ navigation }) => {
     return (
       <View style={styles.headerContainer}>
         <SafeAreaView edges={["top"]} />
-        <Searchbar
-          placeholder="Search..."
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-          onSubmitEditing={handleSearch}
-        />
+        <View style={styles.headerContentContainer}>
+          <TouchableOpacity onPress={() => navigation.goBack()} style={{ width: 50, height: 50, justifyContent: "center", alignItems: "center" }}>
+            <IonIcons name="chevron-back" size={24} />
+          </TouchableOpacity>
+          <Searchbar
+            style={{ flex: 1, marginRight: 25 }}
+            placeholder="Search..."
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+            onSubmitEditing={handleSearch}
+            autoFocus
+          />
+        </View>
       </View>
     );
   }, [searchQuery]);
@@ -63,6 +70,10 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: colors.white,
-    paddingBottom: 10,
+  },
+  headerContentContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingBottom: 15
   }
 });
