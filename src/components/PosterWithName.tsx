@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   title: {
     margin: 20,
     color: colors.white,
-    fontSize: 20,
-    fontFamily: fonts.bold,
+    fontSize: 22,
+    fontFamily: fonts.semiBold,
   }
 });
