@@ -10,8 +10,7 @@ const AppStackNavigation = () => {
       screenOptions={{
         headerTitleAlign: "left",
         headerTitleStyle: {
-          fontFamily: fonts.regular,
-          fontWeight: "500",
+          fontFamily: fonts.medium,
           fontSize: 18
         }
       }}

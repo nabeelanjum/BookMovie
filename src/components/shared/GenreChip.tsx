@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import colors from "../../common/colors";
 import AppText from "./AppText";
+import { fonts } from "../../common/constants";
 
 interface Props {
   name: string;
@@ -29,6 +30,6 @@ const styles = StyleSheet.create({
   },
   name: {
     color: colors.white,
-    fontWeight: "600",
+    fontFamily: fonts.semiBold,
   }
 });

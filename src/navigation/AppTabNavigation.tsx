@@ -21,8 +21,7 @@ const BottomTabNavigator = () => {
         tabBarInactiveTintColor: colors.tabInactive,
         headerTitleAlign: "left",
         headerTitleStyle: {
-          fontFamily: fonts.regular,
-          fontWeight: "500",
+          fontFamily: fonts.medium,
           fontSize: 18
         }
       }}
@@ -32,7 +31,7 @@ const BottomTabNavigator = () => {
         component={Dashboard}
         options={{
           tabBarIcon: (props) => <Image source={images.dashboard} style={{ tintColor: props.color }} />,
-          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>
+          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 11, fontFamily: props.focused ? fonts.semiBold : fonts.regular }}>{props.children}</AppText>
         }}
       />
       <Tab.Screen
@@ -41,7 +40,7 @@ const BottomTabNavigator = () => {
         options={{
           title: "Watch",
           tabBarIcon: (props) => <Image source={images.watch} style={{ tintColor: props.color }} />,
-          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>,
+          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 11, fontFamily: props.focused ? fonts.semiBold : fonts.regular }}>{props.children}</AppText>,
           headerShown: false,
         }}
       />
@@ -50,7 +49,7 @@ const BottomTabNavigator = () => {
         component={MediaLibrary}
         options={{
           tabBarIcon: (props) => <Image source={images.library} style={{ tintColor: props.color }} />,
-          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>
+          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 11, fontFamily: props.focused ? fonts.semiBold : fonts.regular }}>{props.children}</AppText>
         }}
       />
       <Tab.Screen
@@ -58,7 +57,7 @@ const BottomTabNavigator = () => {
         component={More}
         options={{
           tabBarIcon: (props) => <Image source={images.more} style={{ tintColor: props.color }} />,
-          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>
+          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 11, fontFamily: props.focused ? fonts.semiBold : fonts.regular }}>{props.children}</AppText>
         }}
       />
     </Tab.Navigator>
