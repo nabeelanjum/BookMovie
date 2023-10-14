@@ -7,6 +7,7 @@ import AppText from "../components/shared/AppText";
 import colors from "../common/colors";
 import { Dashboard, MediaLibrary, More, Watch } from "../screens";
 import AppStackNavigation from "./AppStackNavigation";
+import { fonts } from "../common/constants";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +20,11 @@ const BottomTabNavigator = () => {
         tabBarActiveTintColor: colors.white,
         tabBarInactiveTintColor: colors.tabInactive,
         headerTitleAlign: "left",
+        headerTitleStyle: {
+          fontFamily: fonts.regular,
+          fontWeight: "500",
+          fontSize: 18
+        }
       }}
     >
       <Tab.Screen
