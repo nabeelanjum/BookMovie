@@ -5,6 +5,7 @@ import AppText from "./shared/AppText";
 import { getImageUrl } from "../common/helpers";
 import colors from "../common/colors";
 import Overlay from "./shared/Overlay";
+import { fonts } from "../common/constants";
 
 interface Props {
   id: string;
@@ -52,6 +53,6 @@ const styles = StyleSheet.create({
     margin: 20,
     color: colors.white,
     fontSize: 20,
-    fontWeight: "bold",
+    fontFamily: fonts.bold,
   }
 });

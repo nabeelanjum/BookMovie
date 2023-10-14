@@ -13,7 +13,6 @@ interface Props extends TextProps {
   bold?: boolean;
   medium?: boolean;
   semiBold?: boolean;
-  extraBold?: boolean;
   center?: boolean;
   right?: boolean;
   size?: number;
@@ -32,7 +31,6 @@ const AppText: React.FC<Props> = (props) => {
     medium,
     bold,
     semiBold,
-    extraBold,
   } = props;
 
   return (
@@ -45,7 +43,6 @@ const AppText: React.FC<Props> = (props) => {
         medium && styles.medium,
         bold && styles.bold,
         semiBold && styles.semiBold,
-        extraBold && styles.extraBold,
         { fontSize: size },
         { color },
         style,
@@ -67,12 +64,13 @@ const styles = StyleSheet.create({
     textAlign: "right",
   },
   medium: {
+    fontFamily: fonts.medium
   },
   bold: {
+    fontFamily: fonts.bold
   },
   semiBold: {
-  },
-  extraBold: {
+    fontFamily: fonts.semiBold
   },
 });
 
