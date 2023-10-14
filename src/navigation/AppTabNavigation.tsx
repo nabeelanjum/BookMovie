@@ -23,27 +23,31 @@ export function BottomTabNavigator() {
         component={Watch}
         options={{
           tabBarIcon: (props) => <Image source={images.dashboard} style={{ tintColor: props.color }} />,
+          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>
         }}
       />
       <Tab.Screen
         name="Watch"
         component={Watch}
         options={{
-          tabBarIcon: (props) => <Image source={images.watch} style={{ tintColor: props.color }} />
+          tabBarIcon: (props) => <Image source={images.watch} style={{ tintColor: props.color }} />,
+          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>
         }}
       />
       <Tab.Screen
         name="Library"
         component={Watch}
         options={{
-          tabBarIcon: (props) => <Image source={images.library} style={{ tintColor: props.color }} />
+          tabBarIcon: (props) => <Image source={images.library} style={{ tintColor: props.color }} />,
+          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>
         }}
       />
       <Tab.Screen
         name="More"
         component={Watch}
         options={{
-          tabBarIcon: (props) => <Image source={images.more} style={{ tintColor: props.color }} />
+          tabBarIcon: (props) => <Image source={images.more} style={{ tintColor: props.color }} />,
+          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 12, fontWeight: props.focused ? "bold" : "normal" }}>{props.children}</AppText>
         }}
       />
     </Tab.Navigator>
