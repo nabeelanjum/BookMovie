@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
 import useMovies from "../hooks/useMovies";
@@ -8,8 +8,16 @@ const Watch: React.FC = ({ navigation }) => {
 
   const { getMoviesList, moviesList } = useMovies();
 
+  const [isLoading, setLoading] = useState(false);
+
+  const getData = async () => {
+    setLoading(true);
+    await getMoviesList();
+    setLoading(false);
+  }
+
   useEffect(() => {
-    getMoviesList();
+    getData();
   }, []);
 
   return (
@@ -18,6 +26,8 @@ const Watch: React.FC = ({ navigation }) => {
         data={moviesList}
         keyExtractor={(item) => item.id}
         contentContainerStyle={{ paddingHorizontal: 15, paddingVertical: 10 }}
+        refreshing={isLoading}
+        onRefresh={getData}
         renderItem={({ item }) => (
           <PosterWithName
             id={item.id}
