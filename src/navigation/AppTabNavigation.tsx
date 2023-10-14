@@ -5,59 +5,56 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import images from "../assets/images";
 import AppText from "../components/shared/AppText";
 import colors from "../common/colors";
-import { Dashboard, MediaLibrary, More, Watch } from "../screens";
+import { Dashboard, MediaLibrary, More } from "../screens";
 import AppStackNavigation from "./AppStackNavigation";
 import { fonts } from "../common/constants";
+import { tabBarConfig, tabRoutes } from "./configs";
 
 const Tab = createBottomTabNavigator();
 
+const TabLabel = (props: any) => {
+  return (
+    <AppText style={{ color: props.color, fontSize: 11, fontFamily: props.focused ? fonts.semiBold : fonts.regular }}>
+      {props.children}
+    </AppText>
+  );
+}
+
 const BottomTabNavigator = () => {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarStyle: styles.tabBar,
-        tabBarIconStyle: { marginBottom: -10 },
-        tabBarActiveTintColor: colors.white,
-        tabBarInactiveTintColor: colors.tabInactive,
-        headerTitleAlign: "left",
-        headerTitleStyle: {
-          fontFamily: fonts.medium,
-          fontSize: 18
-        }
-      }}
-    >
+    <Tab.Navigator screenOptions={tabBarConfig}>
       <Tab.Screen
-        name="Dashboard"
+        name={tabRoutes.Dashboard}
         component={Dashboard}
         options={{
           tabBarIcon: (props) => <Image source={images.dashboard} style={{ tintColor: props.color }} />,
-          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 11, fontFamily: props.focused ? fonts.semiBold : fonts.regular }}>{props.children}</AppText>
+          tabBarLabel: (props) => <TabLabel {...props} />
         }}
       />
       <Tab.Screen
-        name="AppStack"
+        name={tabRoutes.Watch}
         component={AppStackNavigation}
         options={{
           title: "Watch",
           tabBarIcon: (props) => <Image source={images.watch} style={{ tintColor: props.color }} />,
-          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 11, fontFamily: props.focused ? fonts.semiBold : fonts.regular }}>{props.children}</AppText>,
+          tabBarLabel: (props) => <TabLabel {...props} />,
           headerShown: false,
         }}
       />
       <Tab.Screen
-        name="Library"
+        name={tabRoutes.Library}
         component={MediaLibrary}
         options={{
           tabBarIcon: (props) => <Image source={images.library} style={{ tintColor: props.color }} />,
-          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 11, fontFamily: props.focused ? fonts.semiBold : fonts.regular }}>{props.children}</AppText>
+          tabBarLabel: (props) => <TabLabel {...props} />,
         }}
       />
       <Tab.Screen
-        name="More"
+        name={tabRoutes.More}
         component={More}
         options={{
           tabBarIcon: (props) => <Image source={images.more} style={{ tintColor: props.color }} />,
-          tabBarLabel: (props) => <AppText style={{ color: props.color, fontSize: 11, fontFamily: props.focused ? fonts.semiBold : fonts.regular }}>{props.children}</AppText>
+          tabBarLabel: (props) => <TabLabel {...props} />,
         }}
       />
     </Tab.Navigator>
@@ -65,14 +62,3 @@ const BottomTabNavigator = () => {
 }
 
 export default BottomTabNavigator;
-
-const styles = StyleSheet.create({
-  tabBar: {
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    borderTopWidth: 0,
-    backgroundColor: "#2E2739",
-    minHeight: 70,
-    paddingBottom: 15,
-  }
-});
