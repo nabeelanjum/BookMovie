@@ -6,7 +6,7 @@ import { getImageUrl, getTrailerKey } from "../common/helpers";
 import colors from "../common/colors";
 import AppButton from "../components/shared/AppButton";
 import GenreChip from "../components/shared/GenreChip";
-import { SCREEN_HEIGHT } from "../common/constants";
+import { SCREEN_HEIGHT, fonts } from "../common/constants";
 import Overlay from "../components/shared/Overlay";
 
 const MovieDetails: React.FC<any> = ({ route }) => {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   title: {
-    fontWeight: "600",
+    fontFamily: fonts.semiBold,
     fontSize: 18,
   },
   infoView: {

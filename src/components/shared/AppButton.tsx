@@ -8,6 +8,7 @@ import {
 
 import AppText from "./AppText";
 import colors from "../../common/colors";
+import { fonts } from "../../common/constants";
 
 interface Props extends TouchableOpacityProps {
   label: string;
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: 16,
     textAlign: "center",
-    fontWeight: "bold",
+    fontFamily: fonts.semiBold
   },
 });
 
