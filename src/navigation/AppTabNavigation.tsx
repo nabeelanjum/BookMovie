@@ -1,10 +1,10 @@
 import React from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import IonIcons from "react-native-vector-icons/Ionicons";
 
 import images from "../assets/images";
 import AppText from "../components/shared/AppText";
-import colors from "../common/colors";
 import { Dashboard, MediaLibrary, More } from "../screens";
 import AppStackNavigation from "./AppStackNavigation";
 import { fonts } from "../common/constants";
@@ -53,7 +53,7 @@ const BottomTabNavigator = () => {
         name={tabRoutes.More}
         component={More}
         options={{
-          tabBarIcon: (props) => <Image source={images.more} style={{ tintColor: props.color }} />,
+          tabBarIcon: (props) => <IonIcons name="list" size={24} color={props.color} />,
           tabBarLabel: (props) => <TabLabel {...props} />,
         }}
       />
