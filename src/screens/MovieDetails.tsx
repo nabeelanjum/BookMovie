@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   container: {
   },
   posterContainer: {
-    height: SCREEN_HEIGHT / 1.6,
+    height: SCREEN_HEIGHT / 1.8,
     width: "100%",
     justifyContent: "flex-end",
   },
