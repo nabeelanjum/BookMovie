@@ -4,7 +4,6 @@ import IonIcons from "react-native-vector-icons/Ionicons";
 import { MovieDetails, Search, VideoPlayback, Watch } from "../screens";
 import { fonts } from "../common/constants";
 import { stackRoutes } from "./configs";
-import AppText from "../components/shared/AppText";
 import { Pressable } from "react-native";
 import colors from "../common/colors";
 
@@ -54,7 +53,6 @@ const AppStackNavigation = ({ navigation }) => {
         name={stackRoutes.VideoPlayback}
         component={VideoPlayback}
         options={{
-          presentation: "card",
           title: "",
         }}
       />
