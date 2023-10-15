@@ -34,7 +34,7 @@ const MovieDetails: React.FC<any> = ({ navigation, route }) => {
 
   const handleWatchTrailer = useCallback(() => {
     navigation.navigate("VideoPlayback", { videoId: movieTrailer });
-  }, []);
+  }, [movieTrailer]);
 
   return (
     <>
@@ -52,12 +52,14 @@ const MovieDetails: React.FC<any> = ({ navigation, route }) => {
               label="Get Tickets"
               style={{ width: 240, marginTop: 20 }}
             />
-            <AppButton
-              onPress={handleWatchTrailer}
-              label="Watch Trailer"
-              reverse
-              style={{ width: 240, marginTop: 10 }}
-            />
+            {!!movieTrailer && (
+              <AppButton
+                onPress={handleWatchTrailer}
+                label="Watch Trailer"
+                reverse
+                style={{ width: 240, marginTop: 10 }}
+              />
+            )}
           </View>
         </ImageBackground>
 

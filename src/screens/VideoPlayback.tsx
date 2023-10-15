@@ -12,8 +12,9 @@ const VideoPlayback: React.FC = ({ route }) => {
     <View style={styles.container}>
       <YoutubePlayer
         height={SCREEN_HEIGHT}
-        // width={SCREEN_WIDTH}
         videoId={videoId}
+        play
+        forceAndroidAutoplay
       />
     </View>
   );
