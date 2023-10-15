@@ -64,7 +64,7 @@ const MovieDetails: React.FC<any> = ({ navigation, route }) => {
           <AppText style={[styles.title]}>Genres</AppText>
           <View style={styles.genreChipsView}>
             {movieDetails?.genres?.map((genre: { id: string, name: string }) => (
-              <GenreChip key={genre.id} name={genre.name} color={"red"} />
+              <GenreChip key={genre.id} name={genre.name} />
             ))}
           </View>
         </>

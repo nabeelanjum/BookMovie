@@ -6,10 +6,10 @@ import { fonts } from "../../common/constants";
 
 interface Props {
   name: string;
-  color: string;
+  color?: string;
 }
 
-const GenreChip: React.FC<Props> = ({ name, color }) => {
+const GenreChip: React.FC<Props> = ({ name }) => {
   return (
     <View style={styles.container}>
       <AppText style={styles.name}>{name}</AppText>
