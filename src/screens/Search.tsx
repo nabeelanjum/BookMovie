@@ -29,7 +29,7 @@ const Search: React.FC = ({ navigation }) => {
       <View style={styles.headerContainer}>
         <SafeAreaView edges={["top"]} />
         <View style={styles.headerContentContainer}>
-          <TouchableOpacity onPress={() => navigation.goBack()} style={{ width: 50, height: 50, justifyContent: "center", alignItems: "center" }}>
+          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.headerSearchButton}>
             <IonIcons name="chevron-back" size={24} color={colors.fontPrimary} />
           </TouchableOpacity>
           <Searchbar
@@ -79,5 +79,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingBottom: 15,
     paddingTop: 10,
-  }
+  },
+  headerSearchButton: {
+    width: 50,
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
