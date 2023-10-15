@@ -2,7 +2,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import IonIcons from "react-native-vector-icons/Ionicons";
 
 import { MovieDetails, Search, VideoPlayback, Watch } from "../screens";
-import { fonts } from "../common/constants";
 import { stackConfig, stackRoutes } from "./configs";
 import { Pressable } from "react-native";
 import colors from "../common/colors";

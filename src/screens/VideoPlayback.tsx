@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import YoutubePlayer from "react-native-youtube-iframe";
 
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../common/constants";
+import { SCREEN_HEIGHT } from "../common/constants";
 
 const VideoPlayback: React.FC = ({ route }) => {
 
