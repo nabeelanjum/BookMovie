@@ -17,7 +17,7 @@ const AppStackNavigation = ({ navigation }) => {
         options={{
           headerRight: () => (
             <Pressable onPress={() => navigation.navigate(stackRoutes.Search)} style={{ paddingHorizontal: 15 }}>
-              <IonIcons name="search" size={22} />
+              <IonIcons name="search" size={22} color={colors.fontPrimary} />
             </Pressable>
           )
         }}

@@ -30,7 +30,7 @@ const Search: React.FC = ({ navigation }) => {
         <SafeAreaView edges={["top"]} />
         <View style={styles.headerContentContainer}>
           <TouchableOpacity onPress={() => navigation.goBack()} style={{ width: 50, height: 50, justifyContent: "center", alignItems: "center" }}>
-            <IonIcons name="chevron-back" size={24} />
+            <IonIcons name="chevron-back" size={24} color={colors.fontPrimary} />
           </TouchableOpacity>
           <Searchbar
             style={{ flex: 1, marginRight: 25 }}
