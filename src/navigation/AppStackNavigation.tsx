@@ -6,6 +6,7 @@ import { fonts } from "../common/constants";
 import { stackRoutes } from "./configs";
 import AppText from "../components/shared/AppText";
 import { Pressable } from "react-native";
+import colors from "../common/colors";
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,8 @@ const AppStackNavigation = ({ navigation }) => {
           fontFamily: fonts.medium,
           fontSize: 18
         },
+        headerTintColor: colors.fontPrimary,
+        headerBackTitleVisible: false,
       }}
     >
       <Stack.Screen
@@ -37,6 +40,7 @@ const AppStackNavigation = ({ navigation }) => {
         options={{
           headerTransparent: true,
           title: "",
+          headerTintColor: colors.white,
         }}
       />
       <Stack.Screen
