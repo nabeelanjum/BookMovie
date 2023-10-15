@@ -22,7 +22,7 @@ export const tabBarConfig: BottomTabNavigationOptions = {
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
     borderTopWidth: 0,
-    backgroundColor: "#2E2739",
+    backgroundColor: colors.tabbar,
     minHeight: 80,
     paddingBottom: 25,
     position: 'absolute',
