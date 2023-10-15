@@ -38,7 +38,7 @@ const MovieDetails: React.FC<any> = ({ navigation, route }) => {
 
   return (
     <>
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="light-content" backgroundColor={colors.overlay} />
 
       <ScrollView contentContainerStyle={{ paddingBottom: tabBarHeight }} style={styles.container}>
         <ImageBackground

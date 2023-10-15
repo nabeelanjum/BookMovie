@@ -15,6 +15,7 @@ export default async function invokeAPI(apiConfig: AxiosRequestConfig) {
     return response.data;
   } catch (error) {
     console.log(error);
+    // We can handle different scenarios here and show meaningful messages to the user but due to time limitation leaving it as is
     // TODO: Show a readable error message to the user
   }
 }
