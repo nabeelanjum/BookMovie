@@ -1,12 +1,18 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import YoutubePlayer from "react-native-youtube-iframe";
+import YoutubePlayer, { PLAYER_STATES } from "react-native-youtube-iframe";
 
 import { SCREEN_HEIGHT } from "../common/constants";
 
-const VideoPlayback: React.FC = ({ route }) => {
+const VideoPlayback: React.FC = ({ navigation, route }) => {
 
   const videoId = route.params?.videoId;
+
+  const handleVideoStateChange = (state: PLAYER_STATES) => {
+    if (state === PLAYER_STATES.ENDED) {
+      navigation.goBack();
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -15,6 +21,7 @@ const VideoPlayback: React.FC = ({ route }) => {
         videoId={videoId}
         play
         forceAndroidAutoplay
+        onChangeState={handleVideoStateChange}
       />
     </View>
   );
