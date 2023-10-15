@@ -3,7 +3,7 @@ import IonIcons from "react-native-vector-icons/Ionicons";
 
 import { MovieDetails, Search, VideoPlayback, Watch } from "../screens";
 import { fonts } from "../common/constants";
-import { stackRoutes } from "./configs";
+import { stackConfig, stackRoutes } from "./configs";
 import { Pressable } from "react-native";
 import colors from "../common/colors";
 
@@ -11,17 +11,7 @@ const Stack = createStackNavigator();
 
 const AppStackNavigation = ({ navigation }) => {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerTitleAlign: "left",
-        headerTitleStyle: {
-          fontFamily: fonts.medium,
-          fontSize: 18
-        },
-        headerTintColor: colors.fontPrimary,
-        headerBackTitleVisible: false,
-      }}
-    >
+    <Stack.Navigator screenOptions={stackConfig}>
       <Stack.Screen
         name={stackRoutes.Watch}
         component={Watch}

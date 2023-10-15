@@ -6,8 +6,8 @@ import IonIcons from "react-native-vector-icons/Ionicons";
 
 import colors from "../common/colors";
 import useMovies from "../hooks/useMovies";
-import MovieTile from "../components/MovieTile";
 import { stackRoutes } from "../navigation/configs";
+import { MovieTile } from "../components";
 
 const Search: React.FC = ({ navigation }) => {
 

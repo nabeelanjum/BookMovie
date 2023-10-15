@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
 import useMovies from "../hooks/useMovies";
-import PosterWithName from "../components/PosterWithName";
+import { PosterWithName } from "../components";
 
 const Watch: React.FC = ({ navigation }) => {
 

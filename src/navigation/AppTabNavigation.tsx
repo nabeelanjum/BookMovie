@@ -2,9 +2,9 @@ import React from "react";
 import { Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import IonIcons from "react-native-vector-icons/Ionicons";
+import { AppText } from "../components";
 
 import images from "../assets/images";
-import AppText from "../components/shared/AppText";
 import { Dashboard, MediaLibrary, More } from "../screens";
 import AppStackNavigation from "./AppStackNavigation";
 import { fonts } from "../common/constants";

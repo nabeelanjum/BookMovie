@@ -1,4 +1,5 @@
 import { BottomTabNavigationOptions } from "@react-navigation/bottom-tabs";
+import { StackNavigationOptions } from "@react-navigation/stack";
 
 import colors from "../common/colors";
 import { fonts } from "../common/constants";
@@ -34,4 +35,14 @@ export const tabBarConfig: BottomTabNavigationOptions = {
     fontFamily: fonts.medium,
     fontSize: 18
   }
+}
+
+export const stackConfig: StackNavigationOptions = {
+  headerTitleAlign: "left",
+  headerTitleStyle: {
+    fontFamily: fonts.medium,
+    fontSize: 18
+  },
+  headerTintColor: colors.fontPrimary,
+  headerBackTitleVisible: false,
 }

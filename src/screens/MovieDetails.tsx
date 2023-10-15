@@ -1,14 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { ImageBackground, ScrollView, StyleSheet, View } from "react-native";
 
-import AppText from "../components/shared/AppText";
 import useMovies from "../hooks/useMovies";
 import { getImageUrl, getTrailerId } from "../common/helpers";
 import colors from "../common/colors";
-import AppButton from "../components/shared/AppButton";
-import GenreChip from "../components/shared/GenreChip";
 import { SCREEN_HEIGHT, fonts } from "../common/constants";
-import Overlay from "../components/shared/Overlay";
+import { AppButton, AppText, GenreChip, Overlay } from "../components";
 
 const MovieDetails: React.FC<any> = ({ navigation, route }) => {
 
