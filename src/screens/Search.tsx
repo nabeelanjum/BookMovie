@@ -8,8 +8,11 @@ import colors from "../common/colors";
 import useMovies from "../hooks/useMovies";
 import { stackRoutes } from "../navigation/configs";
 import { MovieTile } from "../components";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 const Search: React.FC = ({ navigation }) => {
+
+  const tabBarHeight = useBottomTabBarHeight();
 
   const { getMoviesSearchResults } = useMovies();
 
@@ -49,7 +52,7 @@ const Search: React.FC = ({ navigation }) => {
         <FlatList
           data={searchResults}
           keyExtractor={(item) => item.id}
-          contentContainerStyle={{ paddingHorizontal: 15 }}
+          contentContainerStyle={{ paddingHorizontal: 15, paddingBottom: tabBarHeight }}
           renderItem={({ item }) => (
             <MovieTile
               movie={item}
@@ -74,6 +77,7 @@ const styles = StyleSheet.create({
   headerContentContainer: {
     flexDirection: "row",
     alignItems: "center",
-    paddingBottom: 15
+    paddingBottom: 15,
+    paddingTop: 10,
   }
 });

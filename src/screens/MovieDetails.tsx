@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { ImageBackground, ScrollView, StyleSheet, View } from "react-native";
+import { ImageBackground, ScrollView, StatusBar, StyleSheet, View } from "react-native";
 
 import useMovies from "../hooks/useMovies";
 import { getImageUrl, getTrailerId } from "../common/helpers";
@@ -37,45 +37,48 @@ const MovieDetails: React.FC<any> = ({ navigation, route }) => {
   }, []);
 
   return (
-    <ScrollView contentContainerStyle={{ paddingBottom: tabBarHeight }} style={styles.container}>
+    <>
+      <StatusBar barStyle="light-content" />
 
-      <ImageBackground
-        source={{ uri: getImageUrl(movieDetails?.poster_path) }}
-        style={styles.posterContainer}
-      >
-        <Overlay />
-        <View style={styles.buttonsView}>
-          <AppText style={styles.title} color={colors.white}>In Theaters {movieDetails?.release_date}</AppText>
-          <AppButton
-            label="Get Tickets"
-            style={{ width: 240, marginTop: 20 }}
-          />
-          <AppButton
-            onPress={handleWatchTrailer}
-            label="Watch Trailer"
-            reverse
-            style={{ width: 240, marginTop: 10 }}
-          />
-        </View>
-      </ImageBackground>
-
-      <View style={styles.infoView}>
-        <>
-          <AppText style={[styles.title]}>Genres</AppText>
-          <View style={styles.genreChipsView}>
-            {movieDetails?.genres?.map((genre: { id: string, name: string }) => (
-              <GenreChip key={genre.id} name={genre.name} />
-            ))}
+      <ScrollView contentContainerStyle={{ paddingBottom: tabBarHeight }} style={styles.container}>
+        <ImageBackground
+          source={{ uri: getImageUrl(movieDetails?.poster_path) }}
+          style={styles.posterContainer}
+        >
+          <Overlay />
+          <View style={styles.buttonsView}>
+            <AppText style={styles.title} color={colors.white}>In Theaters {movieDetails?.release_date}</AppText>
+            <AppButton
+              label="Get Tickets"
+              style={{ width: 240, marginTop: 20 }}
+            />
+            <AppButton
+              onPress={handleWatchTrailer}
+              label="Watch Trailer"
+              reverse
+              style={{ width: 240, marginTop: 10 }}
+            />
           </View>
-        </>
+        </ImageBackground>
 
-        <>
-          <AppText style={[styles.title, { marginTop: 25 }]}>Overview</AppText>
-          <AppText style={styles.overviewText}>{movieDetails?.overview}</AppText>
-        </>
-      </View>
+        <View style={styles.infoView}>
+          <>
+            <AppText style={[styles.title]}>Genres</AppText>
+            <View style={styles.genreChipsView}>
+              {movieDetails?.genres?.map((genre: { id: string, name: string }) => (
+                <GenreChip key={genre.id} name={genre.name} />
+              ))}
+            </View>
+          </>
 
-    </ScrollView>
+          <>
+            <AppText style={[styles.title, { marginTop: 25 }]}>Overview</AppText>
+            <AppText style={styles.overviewText}>{movieDetails?.overview}</AppText>
+          </>
+        </View>
+      </ScrollView>
+    </>
+
   );
 }
 

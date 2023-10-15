@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH / 2.5,
     height: SCREEN_WIDTH / 3.5,
     borderRadius: 10,
+    backgroundColor: colors.overlay,
   },
   nameView: {
     flex: 1,

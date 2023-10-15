@@ -28,7 +28,7 @@ export const tabBarConfig: BottomTabNavigationOptions = {
     paddingBottom: 25,
     position: 'absolute',
   },
-  tabBarIconStyle: { marginBottom: -10 },
+  tabBarIconStyle: { marginBottom: -12 },
   tabBarActiveTintColor: colors.white,
   headerTitleAlign: "left",
   headerTitleStyle: {
