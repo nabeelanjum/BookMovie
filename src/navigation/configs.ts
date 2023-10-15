@@ -19,8 +19,8 @@ export const stackRoutes = {
 
 export const tabBarConfig: BottomTabNavigationOptions = {
   tabBarStyle: {
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 30,
     borderTopWidth: 0,
     backgroundColor: "#2E2739",
     minHeight: 80,

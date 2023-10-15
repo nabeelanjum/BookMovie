@@ -22,7 +22,12 @@ const TabLabel = (props: any) => {
 
 const BottomTabNavigator = () => {
   return (
-    <Tab.Navigator screenOptions={tabBarConfig}>
+    <Tab.Navigator
+      screenOptions={{
+        ...tabBarConfig,
+      }}
+      initialRouteName={tabRoutes.Watch}
+    >
       <Tab.Screen
         name={tabRoutes.Dashboard}
         component={Dashboard}
