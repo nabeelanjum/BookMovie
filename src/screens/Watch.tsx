@@ -25,6 +25,7 @@ const Watch: React.FC = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      {/* I know that the list should be paginated and load more data using `onEndReached` but due to limited time not handling that */}
       <FlatList
         data={moviesList}
         keyExtractor={(item) => item.id}
