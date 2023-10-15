@@ -80,7 +80,6 @@ const MovieDetails: React.FC<any> = ({ navigation, route }) => {
         </View>
       </ScrollView>
     </>
-
   );
 }
 
