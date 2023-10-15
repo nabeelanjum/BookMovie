@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, Pressable, StyleSheet, View } from "react-native";
 import AppText from "../components/shared/AppText";
-import { getImageUrl } from "../common/helpers";
+import { getFormattedDate, getImageUrl } from "../common/helpers";
 import { SCREEN_WIDTH, fonts } from "../common/constants";
 import colors from "../common/colors";
 
@@ -26,7 +26,7 @@ const MovieTile: React.FC<Props> = (props) => {
       />
       <View style={styles.nameView}>
         <AppText style={styles.title}>{movie.title}</AppText>
-        <AppText color={colors.fontSecondary}>Released: {movie.release_date}</AppText>
+        <AppText color={colors.fontSecondary}>Released: {getFormattedDate(movie.release_date)}</AppText>
       </View>
     </Pressable>
   );

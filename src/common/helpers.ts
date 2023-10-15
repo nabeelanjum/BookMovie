@@ -1,3 +1,4 @@
+import moment from "moment";
 import { IMAGE_BASE_URL } from "../../env"
 import { BackdropSize } from "./types";
 
@@ -10,4 +11,8 @@ export const getImageUrl = (path: string, size: BackdropSize = "original") => {
 export const getTrailerId = (videos: any[]) => {
   const youTubeTrailer = videos?.find((videoObj) => videoObj.type === "Trailer" && videoObj.site === "YouTube");
   return youTubeTrailer?.key;
+}
+
+export const getFormattedDate = (date: string, format: string = "MMMM DD, YYYY") => {
+  return moment(date).format(format);
 }

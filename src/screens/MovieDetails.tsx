@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { ImageBackground, ScrollView, StatusBar, StyleSheet, View } from "react-native";
 
 import useMovies from "../hooks/useMovies";
-import { getImageUrl, getTrailerId } from "../common/helpers";
+import { getFormattedDate, getImageUrl, getTrailerId } from "../common/helpers";
 import colors from "../common/colors";
 import { SCREEN_HEIGHT, fonts } from "../common/constants";
 import { AppButton, AppText, GenreChip, Overlay } from "../components";
@@ -47,7 +47,7 @@ const MovieDetails: React.FC<any> = ({ navigation, route }) => {
         >
           <Overlay />
           <View style={styles.buttonsView}>
-            <AppText style={styles.title} color={colors.white}>In Theaters {movieDetails?.release_date}</AppText>
+            <AppText style={styles.title} color={colors.white}>In Theaters {getFormattedDate(movieDetails?.release_date)}</AppText>
             <AppButton
               label="Get Tickets"
               style={{ width: 240, marginTop: 20 }}
