@@ -6,10 +6,13 @@ import { getImageUrl, getTrailerId } from "../common/helpers";
 import colors from "../common/colors";
 import { SCREEN_HEIGHT, fonts } from "../common/constants";
 import { AppButton, AppText, GenreChip, Overlay } from "../components";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 const MovieDetails: React.FC<any> = ({ navigation, route }) => {
 
   const { params } = route;
+
+  const tabBarHeight = useBottomTabBarHeight();
 
   const { getMovieDetails } = useMovies();
 
@@ -34,7 +37,7 @@ const MovieDetails: React.FC<any> = ({ navigation, route }) => {
   }, []);
 
   return (
-    <ScrollView contentContainerStyle={{ paddingBottom: 10 }} style={styles.container}>
+    <ScrollView contentContainerStyle={{ paddingBottom: tabBarHeight }} style={styles.container}>
 
       <ImageBackground
         source={{ uri: getImageUrl(movieDetails?.poster_path) }}

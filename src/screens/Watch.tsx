@@ -3,8 +3,11 @@ import { FlatList, StyleSheet, View } from "react-native";
 
 import useMovies from "../hooks/useMovies";
 import { PosterWithName } from "../components";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 const Watch: React.FC = ({ navigation }) => {
+
+  const tabBarHeight = useBottomTabBarHeight();
 
   const { getMoviesList, moviesList } = useMovies();
 
@@ -25,7 +28,7 @@ const Watch: React.FC = ({ navigation }) => {
       <FlatList
         data={moviesList}
         keyExtractor={(item) => item.id}
-        contentContainerStyle={{ paddingHorizontal: 15, paddingVertical: 10 }}
+        contentContainerStyle={[styles.listContainer, { paddingBottom: tabBarHeight }]}
         refreshing={isLoading}
         onRefresh={getData}
         renderItem={({ item }) => (
@@ -46,5 +49,9 @@ export default Watch;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  listContainer: {
+    paddingHorizontal: 15,
+    paddingTop: 10,
   }
 });
